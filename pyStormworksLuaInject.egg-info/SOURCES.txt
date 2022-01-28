@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pyStormworksLuaInject/__init__.py
+pyStormworksLuaInject/__main__.py
+pyStormworksLuaInject.egg-info/PKG-INFO
+pyStormworksLuaInject.egg-info/SOURCES.txt
+pyStormworksLuaInject.egg-info/dependency_links.txt
+pyStormworksLuaInject.egg-info/top_level.txt
