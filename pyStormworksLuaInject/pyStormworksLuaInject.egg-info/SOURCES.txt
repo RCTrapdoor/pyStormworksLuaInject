@@ -1,0 +1,8 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pyStormworksLuaInject.egg-info/PKG-INFO
+pyStormworksLuaInject.egg-info/SOURCES.txt
+pyStormworksLuaInject.egg-info/dependency_links.txt
+pyStormworksLuaInject.egg-info/top_level.txt
