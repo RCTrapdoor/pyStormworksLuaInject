@@ -1,8 +1,28 @@
-import os, sys, re, time, threading
+import os, sys, re, time, threading, vdf
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from html import escape
 
 done = False
+
+def getAppData():
+    appId = '573090'
+    if sys.platform.startswith("win32"):
+        return os.getenv('APPDATA')
+    elif sys.platform.startswith("linux"):
+        # Find the steam proton configuration
+        home = os.getenv("HOME")
+        libraryfolders = vdf.load(open(home + "/.steam/steam/config/libraryfolders.vdf"))
+
+        # Scan for a Steam Library which contains stormworks
+        for k, library in libraryfolders['libraryfolders'].items():
+            if k == "contentstatsid":
+                continue
+            if appId in library['apps']:
+                # We found it
+                return library['path'] + "/steamapps/compatdata/" + appId + "/pfx/drive_c/users/steamuser/AppData/Roaming"
+        raise "Stormworks does not appear to be installed"
+    else:
+        raise "Unsupported platform"
 
 def main():
     global code
@@ -32,7 +52,7 @@ def main():
 
     #print("\n------\nPython's Turn!\n------\n")
     outfile = sys.argv[1]
-    root_path = os.getenv('APPDATA')+"/Stormworks/data/vehicles/"
+    root_path = getAppData()+"/Stormworks/data/vehicles/"
     data = open(root_path+outfile).read()
 
     for file in os.scandir(sys.argv[2]):

@@ -4,5 +4,8 @@ from setuptools import setup, find_packages
 setup(
     name="pyStormworksLuaInject",
     version="0.1.3",
-    packages=find_packages()
+    packages=find_packages(),
+    install_requires=[
+        'vdf;platform_system=="Linux"'
+    ]
 )
