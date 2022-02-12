@@ -1,6 +1,9 @@
-import os, sys, re, time, threading, vdf
+import os, sys, re, time, threading
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from html import escape
+
+if sys.platform.startswith("linux"):
+    import vdf
 
 done = False
 
