@@ -7,4 +7,5 @@ pyStormworksLuaInject/__main__.py
 pyStormworksLuaInject.egg-info/PKG-INFO
 pyStormworksLuaInject.egg-info/SOURCES.txt
 pyStormworksLuaInject.egg-info/dependency_links.txt
+pyStormworksLuaInject.egg-info/requires.txt
 pyStormworksLuaInject.egg-info/top_level.txt
