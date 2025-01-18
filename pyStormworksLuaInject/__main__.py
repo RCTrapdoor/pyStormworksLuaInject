@@ -59,6 +59,11 @@ def main():
     data = open(root_path+outfile).read()
 
     for file in os.scandir(sys.argv[2]):
+         #skip non-lua files (.DS_Store is a hidden file created in all folders on macOS, code will fail trying to read it)
+        if not file.name.endswith('.lua'):
+            print(f"Skipping file: {file.name}")
+            continue
+            
         code = open(file.path).read()
         identifier = file.name[:file.name.rindex('.')]
         print(f"Searching '{outfile}' for Lua blocks with identifier '{identifier}'")
